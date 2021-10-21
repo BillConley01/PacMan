@@ -1,0 +1,24 @@
+body{
+    background-color: #E6E6FA;
+}
+
+.pac-man {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+.game-controls{
+
+    background-color:#7B68EE;
+    color:#FFFFE0;
+    width: 150;
+    height: 25;
+}
+
+.game{
+    position: absolute; left: 5%; top: 10%; bottom: 10%; width: 90%; 
+    border-style: solid;
+    border-width: 4px;
+    border-color:  lightcoral;
+    background-color:#9370DB;
+}
