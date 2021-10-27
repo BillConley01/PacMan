@@ -1,11 +1,8 @@
 const gameFrame = document.getElementById("game");
-const box = gameFrame.getBoundingClientRect();
-console.log(box.width);
-let boxWidth = box.width;
-let boxHeight = box.height;
+
+
 let imgWidth = 50;
-let minPosition = 8;
-let maxPosition = boxWidth - imgWidth - 10;
+
 const pacArray = [
     ['./assets/PacMan1.png', './assets/PacMan2.png'],
     ['./assets/PacMan3.png', './assets/PacMan4.png']
@@ -13,18 +10,30 @@ const pacArray = [
 
 const pacMen = []; // This array holds all the pacmen
 
+function setBoundaries()
+{
+    const box = gameFrame.getBoundingClientRect();
+    console.log(box.width);
+    return {
+        min: 10,
+        x: box.width - imgWidth - 10,
+        y: box.height - imgWidth - 10,
+    }
+}
+
 function setToRandom(scale) {
     return {
-        x: (Math.random() * scale) + minPosition,
-        y: (Math.random() * scale) - minPosition 
+        x: (Math.random() * scale.x) + scale.min,
+        y: (Math.random() * scale.y) - scale.min 
     }
 }
 
 // Factory to make a PacMan at a random position with random velocity
 function pacManFactory() {
     // returns an object with random values scaled
+    let scale = setBoundaries();
     let velocity = setToRandom(10);
-    let position = setToRandom(boxHeight);
+    let position = setToRandom(scale);
     let direction = 0;
     let focus = 0;
     // Add image to div id = game
@@ -52,7 +61,7 @@ function update() {
     //used to update direction, image, and position for each pacman object in the arrays
     pacMen.forEach((item) => {
         item.focus = checkFocus(item.focus);
-        item.direction = checkPageBounds(item.direction, item.position, boxWidth);
+        item.direction = checkPageBounds(item.direction, item.position);
         item.newimg.src = pacArray[item.direction][item.focus];
         if (item.direction) {
             item.position.x -= 20;
@@ -78,12 +87,14 @@ function checkFocus(focus) {
     return focus;
 
 }
-function checkPageBounds(direction,position, pageWidth) {
+function checkPageBounds(direction,position) {
+    let minPosition = setBoundaries().min;
+    let maxPositionX = setBoundaries().x;
     if(position.x <= minPosition)
     {
         direction = 0;
     } 
-    else if(position.x  >= maxPosition)
+    else if(position.x  >= maxPositionX)
     {
         direction = 1;
     }
