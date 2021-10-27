@@ -1,12 +1,11 @@
-let pageHeight = window.innerHeight*.8;
-let pageWidth = window.innerWidth*.9;
+const gameFrame = document.getElementById("game");
+const box = gameFrame.getBoundingClientRect();
+console.log(box.width);
+let boxWidth = box.width;
+let boxHeight = box.height;
 let imgWidth = 50;
-let minPosition = 5;
-const maxPosition = ()=> {
-    if(pageWidth === 0 || pageWidth === undefined){
-        return 350;
-    } else return pageWidth -imgWidth - 5;
-}
+let minPosition = 8;
+let maxPosition = boxWidth - imgWidth - 10;
 const pacArray = [
     ['./assets/PacMan1.png', './assets/PacMan2.png'],
     ['./assets/PacMan3.png', './assets/PacMan4.png']
@@ -17,14 +16,15 @@ const pacMen = []; // This array holds all the pacmen
 function setToRandom(scale) {
     return {
         x: (Math.random() * scale) + minPosition,
-        y: (Math.random() * scale*0.9) - minPosition 
+        y: (Math.random() * scale) - minPosition 
     }
 }
+
 // Factory to make a PacMan at a random position with random velocity
 function pacManFactory() {
     // returns an object with random values scaled
     let velocity = setToRandom(10);
-    let position = setToRandom(minPosition);
+    let position = setToRandom(boxHeight);
     let direction = 0;
     let focus = 0;
     // Add image to div id = game
@@ -52,7 +52,7 @@ function update() {
     //used to update direction, image, and position for each pacman object in the arrays
     pacMen.forEach((item) => {
         item.focus = checkFocus(item.focus);
-        item.direction = checkPageBounds(item.direction, item.position, pageWidth);
+        item.direction = checkPageBounds(item.direction, item.position, boxWidth);
         item.newimg.src = pacArray[item.direction][item.focus];
         if (item.direction) {
             item.position.x -= 20;
