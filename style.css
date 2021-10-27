@@ -11,12 +11,14 @@ body{
 
     background-color:#7B68EE;
     color:#FFFFE0;
-    max-width: 150;
-    max-height: 25;
+    max-width: 150px;
+    max-height: 25px;
 }
 
 .game{
-    position: absolute; left: 5%; top: 10%; bottom: 10%; width: 90%; 
+    position: absolute; left: 5%; top: 15%; bottom: 10%; width: 90%; 
+    min-width: 360px;
+    min-height: 360px;
     border-style: solid;
     border-width: 4px;
     border-color:  lightcoral;
