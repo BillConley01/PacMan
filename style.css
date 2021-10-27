@@ -11,8 +11,8 @@ body{
 
     background-color:#7B68EE;
     color:#FFFFE0;
-    width: 150;
-    height: 25;
+    max-width: 150;
+    max-height: 25;
 }
 
 .game{
