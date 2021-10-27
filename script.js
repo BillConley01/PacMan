@@ -2,7 +2,11 @@ let pageHeight = window.innerHeight*.8;
 let pageWidth = window.innerWidth*.9;
 let imgWidth = 50;
 let minPosition = 5;
-let maxPosition = pageWidth -imgWidth - 5;
+const maxPosition = {
+    if(pageWidth === 0 || pageWidth === undefined){
+        return 350;
+    } else return pageWidth -imgWidth - 5;
+}
 const pacArray = [
     ['./assets/PacMan1.png', './assets/PacMan2.png'],
     ['./assets/PacMan3.png', './assets/PacMan4.png']
