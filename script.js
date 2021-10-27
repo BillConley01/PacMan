@@ -2,7 +2,7 @@ let pageHeight = window.innerHeight*.8;
 let pageWidth = window.innerWidth*.9;
 let imgWidth = 50;
 let minPosition = 5;
-const maxPosition = {
+const maxPosition = ()=> {
     if(pageWidth === 0 || pageWidth === undefined){
         return 350;
     } else return pageWidth -imgWidth - 5;
