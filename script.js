@@ -24,7 +24,7 @@ function setToRandom(scale) {
 function pacManFactory() {
     // returns an object with random values scaled
     let velocity = setToRandom(10);
-    let position = setToRandom(pageHeight);
+    let position = setToRandom(minPosition);
     let direction = 0;
     let focus = 0;
     // Add image to div id = game
