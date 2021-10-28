@@ -17,8 +17,6 @@ body{
 
 #game{
     position: absolute; left: 5%; top: 5%; height: 70%; width: 90%; 
-    min-width: 360px;
-    min-height: 360px;
     border-style: solid;
     border-width: 4px;
     border-color:  lightcoral;
