@@ -4,6 +4,7 @@ body { margin: 0; padding: 0; }
     position: absolute;
     left: 5%;
     top: 1%;
+    padding-bottom: !4px;
 }
 .game-controls{
 
@@ -11,6 +12,7 @@ body { margin: 0; padding: 0; }
     color:#FFFFE0;
     max-width: 150px;
     max-height: 25px;
+    padding-bottom: !4px;
 }
 
 #game{
