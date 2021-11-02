@@ -1,6 +1,6 @@
 # PacMan
 
-<img src="./pacman.jpg"></img>
+<img src="./pacman.jpg"/>
 
 
 
