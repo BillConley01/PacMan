@@ -42,8 +42,8 @@ function pacManFactory() {
     newimg.src = './assets/PacMan1.png';
     newimg.width = imgWidth;
     newimg.height = imgWidth;
-    newimg.style.left = position.x;
-    newimg.style.top = position.y;
+    newimg.style.left = position.x + "px";
+    newimg.style.top = position.y + "px";
     // add new pacman image to game
     let game = document.getElementById('game');
     game.appendChild(newimg);
