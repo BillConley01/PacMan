@@ -13,7 +13,6 @@ const pacMen = []; // This array holds all the pacmen
 function setBoundaries()
 {
     const box = gameFrame.getBoundingClientRect();
-    console.log(box.width);
     return {
         min: 10,
         x: box.width - imgWidth - 10,
